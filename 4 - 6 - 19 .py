@@ -34,7 +34,19 @@ y = json.dumps(True)
 
 # the result is a Python dictionary:
 print(y,type(y))'''
-SampleList = [1,2,3,4,5,6.6]
+'''SampleList = [1,2,3,4,5,6.6]
 print(SampleList,hex(id(SampleList)),type(SampleList))
 SampleList+=[4]
-print(SampleList,hex(id(SampleList)),type(SampleList))
+print(SampleList,hex(id(SampleList)),type(SampleList))'''
+
+
+'''year = 1991
+leap = False
+if year % 4 == 0:
+    if year % 100 is 0:
+        if year % 400 == 0:
+            leap = True
+    else :
+        leap = True
+
+print(leap)'''
