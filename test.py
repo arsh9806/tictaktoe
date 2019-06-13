@@ -118,7 +118,7 @@ else:
     print(TurnsBack)'''
 
 
-Total = int(input("Enter total amount to test Promocode : "))
+'''Total = int(input("Enter total amount to test Promocode : "))
 print("------------------------------------------------")
 print()
 AmountToPay = 0
@@ -168,7 +168,7 @@ while True:
     else:
         print("Enter a valid Promocode ")
         print("------------------------------------------------")
-        print()
+        print()'''
 
 
 '''arr = [57,57,-57,57]
@@ -194,7 +194,8 @@ for i in range(NumberOfSteps):
 '''
 
 
-
+d = { 1 : "ABC",2 : "CDE"}
+print(d)
 
 
 
