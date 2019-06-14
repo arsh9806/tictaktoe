@@ -150,7 +150,9 @@ print("----------------")
 c1.ShowData()
 print("^^^^^^^^^^^^^^^")
 c1.ShowSortedItems()
+print("----------")
 print("Total is : ", c1.getTotalAmount())
+print("----------")
 c1.applyPromoCode()
 
 
