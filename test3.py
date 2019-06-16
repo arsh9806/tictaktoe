@@ -1,4 +1,4 @@
-TotalSquares = [
+'''TotalSquares = [
             [[8, 1, 6], [3, 5, 7], [4, 9, 2]],
             [[6, 1, 8], [7, 5, 3], [2, 9, 4]],
             [[4, 9, 2], [3, 5, 7], [8, 1, 6]],
@@ -23,3 +23,10 @@ for i in TotalSquares:
                 total += abs(i[j][k] - GivenSquare[j][k])
     List.append(total)
 print(min(List))
+
+Array = [1, 2, 2, 3, 1, 2]
+temp = []
+NewList = []
+for i in range(len(Array)):
+    NewList.append(Array.count(Array[i])+Array.count(Array[i]+1))
+print(max(NewList))'''

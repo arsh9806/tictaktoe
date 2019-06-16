@@ -28,9 +28,9 @@ for i in range(0, NumberOfCandies):
 print(len(CandiesAte))'''
 
 #assignment 2 question 1
-'''matrix = [[1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9]]
+'''matrix = [[[1,2,3], [4,5,6], [7,8,9]],
+          [[10,11,12], [13, 14, 15], [16,17,180]],
+          [[19,20,21], [22,23,24], [25,26,27]]]
 NewList = []
 for _ in range(2):
     NewList = []
@@ -40,8 +40,15 @@ for _ in range(2):
             temp.append(matrix[i][j])
         NewList.append(temp)
     matrix = NewList
-
-print(NewList)'''
+for i in NewList:
+    print(i)
+for i in range(3):
+    for j in range(3):
+        for k in range(3):
+            NewList[i][j][k] = sum(NewList[i][j])//len(NewList[i][j])
+print("^^^^^^^^^^^^")
+for i in NewList:
+    print(i)'''
 
 #program to define has a relationaship
 '''class Order :

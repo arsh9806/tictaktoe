@@ -1,4 +1,4 @@
-NumberOfSquares = int(input())
+'''NumberOfSquares = int(input())
 ValuesOfSquares = list(map(int, input().split()))
 date, Month = input().split()
 date, Month = [int(date), int(Month)]
@@ -12,6 +12,19 @@ for i in range(0, NumberOfSquares - Month + 1):
     if sum is date:
         temp += 1
 
-print(temp)
+print(temp)'''
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+NewList = []
+for _ in range(2):
+    NewList = []
+    for j in range(2, -1,-1):
+        temp = []
+        for i in range(3):
+            temp.append(matrix[i][j])
+        NewList.append(temp)
+    matrix = NewList
 
+print(NewList)
 
