@@ -10,6 +10,7 @@ for k in range(triplets):
         A = B
         B = C
         C = A + B
+        print(C)
     answer.append(C[elementNo-1])
 for j in answer:
     print(answer)
