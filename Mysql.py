@@ -24,6 +24,15 @@ class DBhandler:
         cursor.execute(sql)
         con.commit()
         print("Entry Deleted!!")
+
+    def FetchAllData(self):
+        sql = "select * from Users order by cid desc"
+        con = mysql.connector.connect(user="root", password="", host="localhost", database="NewDB")
+        cursor = con.cursor()
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
 class Users :
     def __init__(self,name,phone,email):
         self.name = name
@@ -37,6 +46,7 @@ class Users :
 print("1. Add New Customer ")
 print("2. Update Existing Customer ")
 print("3. Delete Customer ")
+print("4. Show all data ")
 
 Choice = input(" Select from above : ")
 if Choice == "1":
@@ -68,3 +78,6 @@ elif Choice == "3":
     if save == "y":
         db = DBhandler()
         db.DeleteDetailsinDB(user.cid)
+elif Choice == "4":
+    db = DBhandler()
+    db.FetchAllData()
