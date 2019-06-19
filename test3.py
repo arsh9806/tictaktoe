@@ -30,3 +30,56 @@ NewList = []
 for i in range(len(Array)):
     NewList.append(Array.count(Array[i])+Array.count(Array[i]+1))
 print(max(NewList))'''
+'''NumberOfElemts = int(input())
+NewList = list(set(map(int,input().split())))
+NewList.sort()
+NumberOfElements = int(input())
+elements = list(map(int,input().split()))
+
+rank = []
+index = 0
+n = len(NewList)
+for i in elements:
+    while n > index and i >= NewList[index]:
+        index += 1
+    rank.append(n+1-index)
+for i in rank:
+    print(i)'''
+
+
+
+'''NumberOfElemts = int(input())
+NewList = list(set(map(int,input().split())))
+NumberOfElements = int(input())
+elements = list(map(int,input().split()))
+temp = NewList
+rank = []
+for i in elements:
+    NewList.append(i)
+    NewList.sort(reverse=1)
+    rank.append(NewList.index(i) + 1)
+    NewList = temp
+for i in rank:
+    print(i)
+'''
+'''element = [5, 25, 50, 120]
+rank = 1
+i = 0
+ranks = []
+for j in range(len(element)):
+    NewList.append(element[j])
+    NewList.sort()
+    ele = element[j]
+    while NewList[i] != ele:
+        i += 1
+        if NewList[i] != NewList[i-1]:
+            rank += 1
+        print(i)
+    print("*")
+
+    ranks.append(rank)
+    NewList.remove(ele)
+
+for i in reversed(ranks):
+    print(i)'''
+

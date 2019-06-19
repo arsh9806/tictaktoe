@@ -14,7 +14,7 @@ print(Array)'''
 #assignment 1 question 2
 '''
 NumberOfCandies = int(input("Enter number of candies"))
-M = int(input("Enter value of M "))
+M = int(input("Enter value of M ")) 
 CandiesAte = []
 X = 0
 CandiesAte.append(0)

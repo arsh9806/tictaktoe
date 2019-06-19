@@ -13,7 +13,7 @@ for i in range(0, NumberOfSquares - Month + 1):
         temp += 1
 
 print(temp)'''
-matrix = [[1, 2, 3],
+'''matrix = [[1, 2, 3],
           [4, 5, 6],
           [7, 8, 9]]
 NewList = []
@@ -27,4 +27,13 @@ for _ in range(2):
     matrix = NewList
 
 print(NewList)
+'''
+str = "abcdefghijklmnopqrstuvwxyz"
+nums = list(map(int,input().split()))
+lists = []
+entered = input()
+for i in entered:
+    lists.append(nums[str.index(i)])
+
+print(max(lists) * len(entered))
 
