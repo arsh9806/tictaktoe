@@ -43,7 +43,7 @@ class Users :
         print("Name is : ",self.name)
         print("phone is : ",self.phone)
         print("email is : ",self.email)
-print("1. Add New Customer ")
+'''print("1. Add New Customer ")
 print("2. Update Existing Customer ")
 print("3. Delete Customer ")
 print("4. Show all data ")
@@ -80,4 +80,5 @@ elif Choice == "3":
         db.DeleteDetailsinDB(user.cid)
 elif Choice == "4":
     db = DBhandler()
-    db.FetchAllData()
+    db.FetchAllData() 
+'''
