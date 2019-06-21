@@ -56,6 +56,7 @@ for i in range(0,NumberOfQueries):
     elif abs(z-x) == abs(z-y):
         l.append("Mouse C")
 print(l)'''
+'''
 class Order :
     def __init__(self, items):
         self.items = items
@@ -153,7 +154,7 @@ c1.ShowSortedItems()
 print("----------")
 print("Total is : ", c1.getTotalAmount())
 print("----------")
-c1.applyPromoCode()
+c1.applyPromoCode()'''
 
 
 '''class Address:
@@ -191,3 +192,14 @@ while choice == "yes":
     choice = input("Would you like to add another Address(yes/no): ")
 for i in adrsList:
     i.showAddressDetails()'''
+
+lis = [2,3,1]
+temp = []
+for i in range(1,4):
+    temp.append(lis.index(lis.index(i)+1)+1)
+for i in temp:
+    print(i)
+
+
+
+

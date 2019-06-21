@@ -82,4 +82,11 @@ for j in range(len(element)):
 
 for i in reversed(ranks):
     print(i)'''
-
+import math
+a = 5
+persons = 0
+for i in range(3):
+    a = math.floor(a/2)
+    persons += a
+    a *= 3
+print(persons)
