@@ -77,7 +77,6 @@ class Customer(Ticket):
         print("Phone  : ", self.phone)
         print("Residence city : ", self.City)
 
-
 class Flight:
     pass
 class ClassA(Flight):
@@ -113,6 +112,20 @@ while abc:
 obj = ClassA()
 ticket = Ticket(name,phnum,residence,Source,desti,Tot)
 ticket.ShowTicket(obj)'''
+#assingnment 3 question 1(a)
+'''string = "(3.1	+	6*2∧2)	*	(2	-	1))"
+lis = []
+for i in string:
+    if i.isdigit():
+        lis.append(float(i))
+    elif i.isspace():
+        continue
+    else:
+        lis.append(i)
+
+
+print(lis)
+'''
 
 #program to define has a relationaship
 '''class Order :
@@ -255,3 +268,4 @@ dell = Dell(4 , 128 , "i5 8th gen","DELL")
 dell.ShowDellDetails()
 acer = Acer(6,500,"ACER", " 1.67 GHz")
 acer.ShowAcerDetails()'''
+

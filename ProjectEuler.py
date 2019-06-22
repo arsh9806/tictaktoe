@@ -8,8 +8,8 @@ for k in range(triplets):
     C = A + B
     while len(C)< elementNo:
         A = B
-        B = C
-        C = A + B
+        B = str(C)
+        C = int(A + B)
         print(C)
     answer.append(C[elementNo-1])
 for j in answer:
