@@ -82,6 +82,3 @@ for j in range(len(element)):
 
 for i in reversed(ranks):
     print(i)'''
-lis = [0, 0, 1, 0, 0, 1, 1, 0]
-for i in range(0,len(lis), 2):
-    print(lis[i])

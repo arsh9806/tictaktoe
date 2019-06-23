@@ -126,6 +126,14 @@ for i in string:
 
 print(lis)
 '''
+#assignment 3 question 1(b)
+'''
+def hasprecedence(op1,	op2):
+    if (op1 == "*" or op1 == "/" or op1 == "^") and (op2 == "+" or op2 == "-"):
+        return True
+    else:
+        return False
+print(hasprecedence("/","+"))'''
 
 #program to define has a relationaship
 '''class Order :
