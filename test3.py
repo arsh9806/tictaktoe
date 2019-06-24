@@ -82,3 +82,9 @@ for j in range(len(element)):
 
 for i in reversed(ranks):
     print(i)'''
+import math
+a = 100
+b = 1000
+a = int(math.sqrt(a))
+b = int(math.sqrt(b))
+print((a,b))
