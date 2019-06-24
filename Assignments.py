@@ -113,19 +113,27 @@ obj = ClassA()
 ticket = Ticket(name,phnum,residence,Source,desti,Tot)
 ticket.ShowTicket(obj)'''
 #assingnment 3 question 1(a)
-'''string = "(3.1	+	6*2∧2)	*	(2	-	1))"
+'''def check(s):
+    try:
+        int(i)
+        return True
+    except:
+        return False
+
+string = "(3.1	+	6*2∧2)	*	(2	-	1))"
 lis = []
 for i in string:
-    if i.isdigit():
-        lis.append(float(i))
-    elif i.isspace():
-        continue
+    a = check(i)
+    if a == True:
+        lis.append(int(i))
     else:
-        lis.append(i)
+        if i == "\t":
+            continue
+        else:
+            lis.append(i)
 
 
-print(lis)
-'''
+print(lis)'''
 #assignment 3 question 1(b)
 '''
 def hasprecedence(op1,	op2):
@@ -135,6 +143,12 @@ def hasprecedence(op1,	op2):
         return False
 print(hasprecedence("/","+"))'''
 
+#Floor and ciel of a value without inbuilt functions !
+'''
+a = 100.1
+print("floor is : ", int(a))
+print("ceil is : ", int(a)+1)
+'''
 #program to define has a relationaship
 '''class Order :
     def __init__(self, items):
