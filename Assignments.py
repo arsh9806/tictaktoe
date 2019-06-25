@@ -113,27 +113,41 @@ obj = ClassA()
 ticket = Ticket(name,phnum,residence,Source,desti,Tot)
 ticket.ShowTicket(obj)'''
 #assingnment 3 question 1(a)
-'''def check(s):
+'''
+def check(s):
     try:
-        int(i)
+        int(s)
         return True
     except:
         return False
 
-string = "(3.1	+	6*2∧2)	*	(2	-	1))"
+string1 = "(3.1+6*2   ∧  2)  *  (    2.153   -   1))"
+string = string1.replace(" ","")
 lis = []
-for i in string:
-    a = check(i)
-    if a == True:
-        lis.append(int(i))
-    else:
-        if i == "\t":
-            continue
+i = 0
+while i < len(string):
+    a = check(string[i])
+    if a:
+        index1 = i
+        i += 1
+        if string[i] == ".":
+
+            i += 1
+            while check(string[i]):
+                i += 1
+            index2 = i
+
+            lis.append(float(string[index1:index2]))
         else:
-            lis.append(i)
+            lis.append(float(string[i-1]))
+    else:
+        lis.append(string[i])
+        i += 1
+
 
 
 print(lis)'''
+
 #assignment 3 question 1(b)
 '''
 def hasprecedence(op1,	op2):
@@ -149,6 +163,17 @@ a = 100.1
 print("floor is : ", int(a))
 print("ceil is : ", int(a)+1)
 '''
+#walking through a file and checking what type of file is it
+'''import random as rd
+import os
+files = []
+# print(files)
+for _, _, c in os.walk("C:/Users/Arsh/Downloads"):
+    for i in c:
+        if i.endswith("mp3"):
+            files.append(i)
+print(files)'''
+
 #program to define has a relationaship
 '''class Order :
     def __init__(self, items):
@@ -291,3 +316,9 @@ dell.ShowDellDetails()
 acer = Acer(6,500,"ACER", " 1.67 GHz")
 acer.ShowAcerDetails()'''
 
+# import datetime as dt
+#
+# print(dt.datetime.today())
+# tomo = dt.datetime(2019,6,17,2,56,45)
+# print(tomo)
+# print(dt.datetime.today() - tomo)

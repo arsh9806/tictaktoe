@@ -82,8 +82,25 @@ for j in range(len(element)):
 
 for i in reversed(ranks):
     print(i)'''
-import math
-a = 100.1
-print("floor is : ", int(a))
-print("ceil is : ", int(a)+1)
+'''import random as rd
+import os
+files = []
+# print(files)
+for _, _, c in os.walk("C:/Users/Arsh/Downloads"):
+    for i in c:
+        if i.endswith("mp3"):
+            files.append(i)
+print(files)
+
+otp = rd.randint(1000, 9000)
+print("OTP Lastly is:", otp)'''
+'''
+import requests as rq
+import json as js
+ref = rq.get("https://newsapi.org/v2/everything?q=bitcoin&from=2019-05-25&sortBy=publishedAt&apiKey=02d2944f372c48d0bf0d53fb8647a6c1")
+response = js.loads(ref.text)
+print(response)
+print(response['articles'][0])
+print(response['articles'][0]['title'])
+print(response['articles'][0]['description'])'''
 
