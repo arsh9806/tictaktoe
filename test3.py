@@ -103,4 +103,12 @@ print(response)
 print(response['articles'][0])
 print(response['articles'][0]['title'])
 print(response['articles'][0]['description'])'''
+import numpy as np
+chessBoard = np.zeros((8, 8), dtype=int)
+chessBoard[1::2, ::2] = 1
+chessBoard[::2, 1::2] = 1
+
+
+
+
 

@@ -32,7 +32,13 @@ tree1.heading('#2', text="Roll NO.")
 tree1.heading('#3', text="Section")
 i=0
 def Insert_value():
-    tree1.insert('', 'end', text=name_text.get(),values=(class_text.get(), roll_text.get(), sec_text.get()))
+    if name_text.get() == "" or\
+            class_text.get() == "" or\
+            roll_text.get() == "" or \
+            sec_text.get() == "":
+        messagebox.showerror("Feilds Empty", "Enter Some values")
+    else:
+        tree1.insert('', 'end', text=name_text.get(), values=(class_text.get(), roll_text.get(), sec_text.get()))
 def delete():
     selected_item = tree1.selection() ## get selected item
     if not selected_item:
@@ -43,14 +49,26 @@ def delete():
         if msg == 1:
             for i in selected_item:
                 tree1.delete(i)
+def Close():
+    msg = messagebox.askquestion("Exit?","Are you sure you want to exit?")
+    if msg == "yes":
+        exit(0)
+
 def update():
     selected_item = tree1.item(tree1.selection())
-    tree1.delete(selected_item['values'][0])
-    selected_item['values'][0] = "ARSH"
-    tree1.grab_current()
-    # newwin = Tk()
-    # ntry = Entry(newwin)
-    # newwin.mainloop()
+    newwin = Tk()
+    newwin.title("Update Record")
+    newwin.geometry("300x300")
+
+    namelbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=1)
+    classlbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=2)
+    rolllbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=3)
+    sectionlbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=4)
+    ntry = Entry(newwin).grid(row=1, column=2)
+    ctry = Entry(newwin).grid(row=2, column=2)
+    rtry = Entry(newwin).grid(row=3, column=2)
+    stry = Entry(newwin).grid(row=4, column=2)
+    newwin.mainloop()
 
 
 
@@ -70,5 +88,5 @@ SearchEntry = Button(text="Search Entry", width=12).grid(row=4, column=3)
 AddEntry = Button(text="Add Entry",width=12,command = Insert_value).grid(row=5, column=3)
 UpdateSelected = Button(text="Update Selected",width=12,command=update).grid(row=6, column=3)
 DeleteSelected = Button(text="Delete Selected",width=12,command=delete).grid(row=7, column=3)
-Close = Button(text="Close",width=12).grid(row=8, column=3)
+Close = Button(text="Close",width=12,command=Close).grid(row=8, column=3)
 window.mainloop()

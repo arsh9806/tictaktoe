@@ -156,6 +156,46 @@ def hasprecedence(op1,	op2):
     else:
         return False
 print(hasprecedence("/","+"))'''
+#diagonal element check for a queen in chess
+'''
+board = [[1, 2, 3, 4, 5],
+         [5, 6, 7, 8],
+         [9, 10, 11, 12],
+         [13, 14, 15, 16]]
+print(board)
+user0 = 0
+user1 = 1
+lis = set()
+#upper right
+k = user0
+l = user1
+#lower left
+i = user0
+j = user1
+#upperleft
+m = user0
+n = user1
+#lower right
+o = user0
+p = user1
+while (0 <= o < 4) and (0 <= p < 4):
+    lis.add(board[o][p])
+    o += 1
+    p += 1
+while (0 <= m < 4) and (0 <= n < 4):
+    lis.add(board[m][n])
+    m -= 1
+    n -= 1
+while (0 <= k < 4) and (0 <= l < 4):
+    lis.add(board[k][l])
+    k -= 1
+    l += 1
+while (0 <= i <4) and (0 <= j < 4):
+    lis.add(board[i][j])
+    i += 1
+    j -= 1
+print(lis)
+'''
 
 #Floor and ciel of a value without inbuilt functions !
 '''
