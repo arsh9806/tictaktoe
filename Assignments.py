@@ -156,14 +156,17 @@ def hasprecedence(op1,	op2):
     else:
         return False
 print(hasprecedence("/","+"))'''
-#diagonal element check for a queen in chess
 '''
-board = [[1, 2, 3, 4, 5],
-         [5, 6, 7, 8],
-         [9, 10, 11, 12],
+#diagonal element check for a queen in chess
+import time
+import timeit
+board = [[1,  2,  3,   4],
+         [5,  6,  7,   8],
+         [9, 10, 11,  12],
          [13, 14, 15, 16]]
+stanmp1 = timeit.default_timer()
 print(board)
-user0 = 0
+user0 = 2
 user1 = 1
 lis = set()
 #upper right
@@ -195,6 +198,8 @@ while (0 <= i <4) and (0 <= j < 4):
     i += 1
     j -= 1
 print(lis)
+stanmp2 = timeit.default_timer()
+print(stanmp2-stanmp1)
 '''
 
 #Floor and ciel of a value without inbuilt functions !

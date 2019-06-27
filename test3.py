@@ -103,12 +103,40 @@ print(response)
 print(response['articles'][0])
 print(response['articles'][0]['title'])
 print(response['articles'][0]['description'])'''
-import numpy as np
+'''import numpy as np
 chessBoard = np.zeros((8, 8), dtype=int)
 chessBoard[1::2, ::2] = 1
 chessBoard[::2, 1::2] = 1
+case = int(input())
+lis = []
+for _ in range(case):
+    n = int(input())
+    sum1 = 0
+    div = (n-1)//3
+    sum1 = (3*div*(div+1))//2
+    div = (n-1)//5
+    sum1 += (5*div*(div+1))//2
+    div = (n-1)//15
+    sum1 -= (15*div*(div+1))//2
+    lis.append(sum1)
+for i in lis:
+    print(i)'''
+# import numpy as np
+# arr3D = np.array([[1,2,3],
+#                  [4,5,6],
+#                  [7,8,9]])
+#
+# arr3D1 = np.array([[11,12,13],
+#                  [14,15,16],
+#                  [17,18,19]])
+#
+#
+# print(np.vstack((arr3D, arr3D1)))
 
-
+for i in range(20):
+    if i == 15:
+        i = 18
+    print(i)
 
 
 
