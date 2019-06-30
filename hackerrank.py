@@ -1,4 +1,4 @@
-a,b = input().split()
+'''a,b = input().split()
 a, b = [int(a),int(b)]
 List = set()
 ArrayA = list(map(int, input().split()))
@@ -24,7 +24,7 @@ for i in newList:
     temp=0
 
 print(len(list(newSet)))
-
+'''
 
 
 
@@ -67,3 +67,27 @@ while True:
     elif diff is 0:
         print("YES")
         break'''
+
+case = int(input())
+lis = []
+for _ in range(case):
+    n = int(input())
+    a = 1
+    b = 2
+    c = a + b
+    sum1 = 2
+    while True:
+
+        if c < n and c % 2 == 0:
+            sum1 += c
+
+        a = b
+        b = c
+        c = a + b
+        if c < n:
+            continue
+        else:
+            break
+    lis.append(sum1)
+for i in lis:
+    print(i)

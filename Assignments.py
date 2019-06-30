@@ -201,7 +201,68 @@ print(lis)
 stanmp2 = timeit.default_timer()
 print(stanmp2-stanmp1)
 '''
+#graph to compare various time complpexities of big o notation!
 
+'''
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(1,7,.01)
+a = [n*np.log(n) for n in x]
+b = [n for n in x]
+c = [np.log(n) for n in x]
+d = [n**2 for n in x]
+e = [n//n for n in x]
+f = [2**n for n in x]
+
+plt.plot(x, a , label="O(nLog(n))")
+plt.plot(x, b, label="O(n)")
+plt.plot(x, c, label="O(log(n)")
+plt.plot(x, d, label="O(n^2)")
+plt.plot(x, e, label="O(1)")
+plt.plot(x, f, label="O(2^n)")
+
+plt.legend(loc='upper center', shadow=True, ncol=33)
+plt.show()
+'''
+#finding max and min temp from csv file using pandas
+'''
+import pandas as pd
+
+df =pd.read_csv("Data.csv", index_col="Year")
+abc = df.loc["2014"]
+print("Analasis of 2014 Temp. details ")
+print(abc)
+print("------------------------")
+print("Average Temp. of Ludhiana in 2014 is : ", math.fsum(abc["Ludhiana"])//len(abc["Ludhiana"]))
+print("Max Temp. of ludhiana in 2014 is : ", max(abc["Ludhiana"]))
+print("Min Temp. of ludhiana in 2014 is : ", min(abc["Ludhiana"]))
+print("------------------------")
+print("Average Temp. of Chandigarh in 2014 is : ", math.fsum(abc["Chandigarh"])//len(abc["Chandigarh"]))
+
+print("Max Temp. of Chandigarh in 2014 is : ", max(abc["Chandigarh"]))
+print("Min Temp. of Chandigarh in 2014 is : ", min(abc["Chandigarh"]))
+print("------------------------")
+print("Average Temp. of Amritsar in 2014 is : ", math.fsum(abc["Amritsar"])//len(abc["Amritsar"]))
+print("Max Temp. of Amritsar in 2014 is : ", max(abc["Amritsar"]))
+print("Min Temp. of Amritsar in 2014 is : ", min(abc["Amritsar"]))
+abc = df.loc["2015"]
+print("Analasis of 2015 Temp. details ")
+print(abc)
+print("------------------------")
+print("Average Temp. of Ludhiana in 2015 is : ", math.fsum(abc["Ludhiana"])//len(abc["Ludhiana"]))
+print("Max Temp. of ludhiana in 2015 is : ", max(abc["Ludhiana"]))
+print("Min Temp. of ludhiana in 2015 is : ", min(abc["Ludhiana"]))
+print("------------------------")
+print("Average Temp. of Chandigarh in 2015 is : ", math.fsum(abc["Chandigarh"])//len(abc["Chandigarh"]))
+
+print("Max Temp. of Chandigarh in 2015 is : ", max(abc["Chandigarh"]))
+print("Min Temp. of Chandigarh in 2015 is : ", min(abc["Chandigarh"]))
+print("------------------------")
+print("Average Temp. of Amritsar in 2015 is : ", math.fsum(abc["Amritsar"])//len(abc["Amritsar"]))
+print("Max Temp. of Amritsar in 2015 is : ", max(abc["Amritsar"]))
+print("Min Temp. of Amritsar in 2015 is : ", min(abc["Amritsar"]))
+print("------------------------")
+'''
 #Floor and ciel of a value without inbuilt functions !
 '''
 a = 100.1

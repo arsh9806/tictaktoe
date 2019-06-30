@@ -121,6 +121,7 @@ for _ in range(case):
     lis.append(sum1)
 for i in lis:
     print(i)'''
+import math
 # import numpy as np
 # arr3D = np.array([[1,2,3],
 #                  [4,5,6],
@@ -132,11 +133,23 @@ for i in lis:
 #
 #
 # print(np.vstack((arr3D, arr3D1)))
-
-for i in range(20):
-    if i == 15:
-        i = 18
-    print(i)
-
-
-
+'''
+import timeit
+stamp = timeit.default_timer()
+arr = [1,2,3,4,3,3,2,1]
+lis = []
+while arr:
+    lis.append(len(arr))
+    arr[:] = [i - min(arr) for i in arr]
+    arr = list(filter(lambda a:a != 0,arr))
+    print(arr)
+print(lis)
+stamp1 = timeit.default_timer()
+print(stamp1-stamp)
+'''
+import numpy as np
+#for checking 1
+arr = np.genfromtxt("numbers.txt", dtype=int)
+if (len(arr[:, len(arr[1]) - 1])) == list(arr[:, len(arr[1]) - 1]).count(1):
+    print("one")
+#for checking 2
