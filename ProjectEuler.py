@@ -48,12 +48,15 @@ for _ in range(case):
     maxi = 0
     lis = []
     n = int(input())
-    for i in range(2, n+1):
-        if n % i == 0 and (i*i) < n:
+    i = 2
+    while (i*i) < n:
+        if n % i == 0:
             lis.append(i)
-            lis.append(n//i)
+            if (n//i) != 0 and :
+                lis.append(n//i)
+        i += 1
     if not lis:
-        lis.append(n)
+        lis = [i for i in lis if i%2 != 0]
     for i in lis:
         temp = 0
         for j in range(2,(i//2)+1):
@@ -64,5 +67,5 @@ for _ in range(case):
             maxi = i
     newlis.append(maxi)
 
-for k in (newlis):
+for k in newlis:
     print(k)

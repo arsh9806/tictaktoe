@@ -147,9 +147,15 @@ print(lis)
 stamp1 = timeit.default_timer()
 print(stamp1-stamp)
 '''
+
+'''
 import numpy as np
 #for checking 1
 arr = np.genfromtxt("numbers.txt", dtype=int)
 if (len(arr[:, len(arr[1]) - 1])) == list(arr[:, len(arr[1]) - 1]).count(1):
     print("one")
 #for checking 2
+'''
+lis = [1,2,3,4,5,8,7]
+lis = [x for x in lis if x%2 != 0]
+print(lis)
