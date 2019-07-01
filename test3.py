@@ -156,6 +156,56 @@ if (len(arr[:, len(arr[1]) - 1])) == list(arr[:, len(arr[1]) - 1]).count(1):
     print("one")
 #for checking 2
 '''
-lis = [1,2,3,4,5,8,7]
-lis = [x for x in lis if x%2 != 0]
-print(lis)
+
+import matplotlib.pyplot as plt
+import numpy as np
+from bs4 import BeautifulSoup
+import requests
+url = "https://www.imdb.com/search/title/?genres=drama&groups=top_250&sort=user_rating,desc"
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text,"html.parser")
+# print(soup.title.text)
+# print(soup.prettify())
+# print(list(soup.children))
+# print(list(soup.find_all("title")))
+tags = soup.find_all("h3", attrs={'class':'lister-item-header'})
+movies = []
+for i,tag in enumerate(tags):
+    movies.append(tag.find('a').contents[0])
+    if i == 10:
+        break
+ratings = []
+rating_records = soup.find_all("div",class_="inline-block ratings-imdb-rating")
+for i, tag in enumerate(rating_records):
+    ratings.append(float(tag.text.strip()))
+    if i == 10:
+        break
+
+
+# data =  [10,25,100,40]
+
+
+register = [0,1,2,3,4,5,6,7,8,9,10]
+# pets = ["cats","dog","hed","bunny"] ,movies
+plt.style.use('dark_background')
+plt.figure(figsize=(5,5))
+b = plt.bar(movies,ratings,width = .3,color="0.8",edgecolor="r",linewidth=2, )
+plt.xticks(movies,rotation="vertical",fontweight="bold")
+plt.title("Movies rating chart")
+plt.ylabel("Ratings",fontsize=15,fontweight="bold",color="0.7")
+plt.title("Top 10 Highest Rated International Movies",fontweight="bold")
+for a,b in zip(movies,ratings):
+    plt.text(a, b, str(b), horizontalalignment='center')
+plt.ylim((8,10))
+# plt.legend()
+plt.show()
+# data =  [10,25,100,40]
+# register = 0,1,2,3
+# pets = "cats","dog","hed","bunny"
+# plt.figure(figsize=(8,4))
+# b = plt.bar(register,data,width = .2 )
+# plt.title("pets")
+# plt.xticks(register,pets)
+# plt.legend()
+# plt.show()

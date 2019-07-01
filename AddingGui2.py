@@ -55,20 +55,26 @@ def Close():
         exit(0)
 
 def update():
-    selected_item = tree1.item(tree1.selection())
-    newwin = Tk()
-    newwin.title("Update Record")
-    newwin.geometry("300x300")
+    tree1.item(tree1.selection())['values'][0] = 1
+    print(tree1.item(tree1.selection()))
+    tree1.update_idletasks()
+#     newwin = Tk()
+#     newwin.title("Update Record")
+#     newwin.geometry("300x300")
+#
+#     namelbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=1)
+#     classlbl = Label(newwin,text = "Enter class : ", width=20).grid(column=1, row=2)
+#     rolllbl = Label(newwin,text = "Enter roll Num : ", width=20).grid(column=1, row=3)
+#     sectionlbl = Label(newwin,text = "Enter Section : ", width=20).grid(column=1, row=4)
+#     UpButton = Button(text="Save changes!",command= lambda: edit_records(ntry.get(),ctry.get(),rtry.get(),stry.get()))
+#     ntry = Entry(newwin).grid(row=1, column=2)
+#     ctry = Entry(newwin).grid(row=2, column=2)
+#     rtry = Entry(newwin).grid(row=3, column=2)
+#     stry = Entry(newwin).grid(row=4, column=2)
+#     newwin.mainloop()
+# def edit_records(ntry,ctry,rtry,stry):
 
-    namelbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=1)
-    classlbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=2)
-    rolllbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=3)
-    sectionlbl = Label(newwin,text = "Enter name : ", width=20).grid(column=1, row=4)
-    ntry = Entry(newwin).grid(row=1, column=2)
-    ctry = Entry(newwin).grid(row=2, column=2)
-    rtry = Entry(newwin).grid(row=3, column=2)
-    stry = Entry(newwin).grid(row=4, column=2)
-    newwin.mainloop()
+
 
 
 

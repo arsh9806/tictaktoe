@@ -38,34 +38,46 @@ for _ in range(case):
     lis.append(sum1)
 for i in lis:
     print(i)'''
-
 #project euler #3 solution
-case = int(input())
+# import math
+# case = int(input())
+# newlis = []
+# lis = []
+# for _ in range(case):
+#     maxi = 0
+#     lis = []
+#     number = int(input())
+#     for i in range(2, int(math.sqrt(number))+1):
+#         if number % i == 0 and i % 2 != 0:
+#             lis.append(i)
+#             if (number//i) % 2 != 0:
+#                 lis.append(number//i)
+#
+#     if not lis:
+#         lis.append(number)
+#     for i in lis:
+#         temp = 0
+#         for j in range(2, (i//2)+1):
+#             if i % j == 0:
+#                 temp = 1
+#         if temp == 0 and i > maxi:
+#             maxi = i
+#     newlis.append(maxi)
+#
+# for k in newlis:
+#     print(k)
+import math
 lis = []
-newlis = []
-
+case = int(input())
 for _ in range(case):
-    maxi = 0
-    lis = []
-    n = int(input())
-    i = 2
-    while (i*i) < n:
-        if n % i == 0:
-            lis.append(i)
-            if (n//i) != 0 and :
-                lis.append(n//i)
-        i += 1
-    if not lis:
-        lis = [i for i in lis if i%2 != 0]
-    for i in lis:
-        temp = 0
-        for j in range(2,(i//2)+1):
-
-            if i%j == 0:
-                temp = 1
-        if temp == 0 and i > maxi:
-            maxi = i
-    newlis.append(maxi)
-
-for k in newlis:
-    print(k)
+    number = int(input())
+    B = 2
+    while number>B:
+        if number%B == 0:
+            number //= B
+            B = 2
+        else:
+            B += 1
+    lis.append(B)
+for i in lis:
+    print(i)
