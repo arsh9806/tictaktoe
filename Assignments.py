@@ -224,10 +224,10 @@ plt.plot(x, f, label="O(2^n)")
 plt.legend(loc='upper center', shadow=True, ncol=33)
 plt.show()
 '''
-#finding max and min temp from csv file using pandas
-'''
-import pandas as pd
 
+'''#finding max and min temp from csv file using pandas
+import pandas as pd
+import math
 df =pd.read_csv("Data.csv", index_col="Year")
 abc = df.loc["2014"]
 print("Analasis of 2014 Temp. details ")
@@ -428,3 +428,17 @@ acer.ShowAcerDetails()'''
 # tomo = dt.datetime(2019,6,17,2,56,45)
 # print(tomo)
 # print(dt.datetime.today() - tomo)
+
+NK = input().split()
+N = int(NK[0])
+K = int(NK[1])
+arr = list(map(int, input().split()))
+remainder = [0 for i in range(K)]
+for i in range(N):
+    remainder[arr[i]%K] += 1
+if K%2 == 0:
+    remainder[K//2] = min(remainder[K//2],1)
+result = min(remainder[0],1)
+for i in range(1,(K//2)+1):
+    result += max(remainder[i],remainder[K-i])
+print(result)

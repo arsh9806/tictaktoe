@@ -156,7 +156,7 @@ if (len(arr[:, len(arr[1]) - 1])) == list(arr[:, len(arr[1]) - 1]).count(1):
     print("one")
 #for checking 2
 '''
-
+'''
 import matplotlib.pyplot as plt
 import numpy as np
 from bs4 import BeautifulSoup
@@ -170,15 +170,15 @@ soup = BeautifulSoup(response.text,"html.parser")
 # print(list(soup.children))
 # print(list(soup.find_all("title")))
 tags = soup.find_all("h3", attrs={'class':'lister-item-header'})
-movies = []
+inmovies = []
 for i,tag in enumerate(tags):
-    movies.append(tag.find('a').contents[0])
+    inmovies.append(tag.find('a').contents[0])
     if i == 10:
         break
-ratings = []
+inratings = []
 rating_records = soup.find_all("div",class_="inline-block ratings-imdb-rating")
 for i, tag in enumerate(rating_records):
-    ratings.append(float(tag.text.strip()))
+    inratings.append(float(tag.text.strip()))
     if i == 10:
         break
 
@@ -189,17 +189,17 @@ for i, tag in enumerate(rating_records):
 register = [0,1,2,3,4,5,6,7,8,9,10]
 # pets = ["cats","dog","hed","bunny"] ,movies
 plt.style.use('dark_background')
-plt.figure(figsize=(5,5))
-b = plt.bar(movies,ratings,width = .3,color="0.8",edgecolor="r",linewidth=2, )
-plt.xticks(movies,rotation="vertical",fontweight="bold")
+plt.figure(figsize=(5, 5))
+international = plt.bar(inmovies,inratings,width = .3,color="0.8",edgecolor="r",linewidth=2, )
+plt.xticks(inmovies,rotation="vertical",fontweight="bold")
 plt.title("Movies rating chart")
 plt.ylabel("Ratings",fontsize=15,fontweight="bold",color="0.7")
-plt.title("Top 10 Highest Rated International Movies",fontweight="bold")
-for a,b in zip(movies,ratings):
+plt.title("Top 10 Highest Rated International Movies", fontweight="bold")
+for a,b in zip(inmovies,inratings):
     plt.text(a, b, str(b), horizontalalignment='center')
-plt.ylim((8,10))
+plt.ylim((8,10))'''
 # plt.legend()
-plt.show()
+# plt.show()
 # data =  [10,25,100,40]
 # register = 0,1,2,3
 # pets = "cats","dog","hed","bunny"
@@ -209,3 +209,106 @@ plt.show()
 # plt.xticks(register,pets)
 # plt.legend()
 # plt.show()
+'''string = "123456"
+import random as rd
+lis = rd.sample(string,6)
+
+print(" ".join(lis))
+print(lis)
+'''
+
+import requests
+from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from scipy import stats
+from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
+'''
+
+url = "http://www.howstat.com/cricket/Statistics/Players/PlayerYears_ODI.asp?PlayerID=3243"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+# Names = soup.find_all("td",class_="TableHeadingRight")
+# columns = ["Year"]
+# for tag in Names:
+#     columns.append(tag.text.strip())
+#
+columns = soup.find_all("td",attrs={"class":"TableHeadingRight"})
+lis = []
+
+i = 0
+for new in columns:
+    i+=1
+    if i==13:
+        break
+    lis.append(new.text.strip())
+lis = np.array(lis)
+# print(lis)
+rows = soup.find("div", {"id": "bat"})
+Year = rows.find_all("a",class_="LinkNormal")
+years = []
+for i in Year:
+    years.append(int(i.text))
+years.append("Overall(16)")
+years = pd.Series(years)
+# years = years.reshape()
+# print(years.shape)
+
+data = rows.find_all("td",{"align" : "right"})
+scores = []
+for i in data:
+    scores.append(i.text.strip())
+
+scores = np.array(scores)
+scores = scores.reshape(17,12)
+
+# print(scores)
+
+news = pd.DataFrame(scores,columns=lis,index=(years))
+# print(news)
+
+X = np.array([int(i) for i in years[:-2]])
+Y = np.array([float(i) for i in news["Avg"][:-2]])
+X = X.reshape(len(X),1)
+Y = Y.reshape(len(Y),1)
+model = LinearRegression()
+model.fit(X,Y)
+print(model.intercept_)
+print(model.coef_)
+y1 = model.predict(X)
+print(r2_score(Y,y1))
+a = model.intercept_ + model.coef_ * 2019
+print(a)
+plt.plot(X,y1,label="Regreesion line")
+plt.scatter(X,Y,label="Data points")
+plt.show()'''
+
+
+'''file = pd.read_csv("Advertising.csv")
+X = np.array(file["TV"])
+Y = np.array(file["Sales"])
+model = LinearRegression()
+X= X.reshape(len(X), 1)
+Y= Y.reshape(len(Y), 1)
+model.fit(X, Y)
+Y1 = model.predict(X)
+print("Slope is : ", model.coef_)
+print("Intercept  is : ", model.intercept_)
+print("R2 score is : ", r2_score(Y, Y1))
+plt.plot(X,Y1,label="Regression",color="r")
+plt.scatter(X,Y,label="Original")
+plt.show()'''
+import cv2 as cv
+img = cv.imread("quote1.jpg")
+(row, col) = img.shape[:2]
+print(row, col)
+center = (row/2,col/2)
+newimg = cv.getRotationMatrix2D(center,90,1.0)
+rotated = cv.warpAffine(img,newimg,(row,col))
+cv.imshow("title",rotated)
+cv.waitKey(0)
+
+
+
