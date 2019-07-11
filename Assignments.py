@@ -156,10 +156,12 @@ def hasprecedence(op1,	op2):
     else:
         return False
 print(hasprecedence("/","+"))'''
-'''
+
 #diagonal element check for a queen in chess
 import time
 import timeit
+
+
 board = [[1,  2,  3,   4],
          [5,  6,  7,   8],
          [9, 10, 11,  12],
@@ -169,6 +171,18 @@ print(board)
 user0 = 2
 user1 = 1
 lis = set()
+#up
+q = user0
+r = user1
+#down
+s = user0
+t = user1
+#left
+u = user0
+v = user1
+#right
+w = user0
+x = user1
 #upper right
 k = user0
 l = user1
@@ -181,26 +195,38 @@ n = user1
 #lower right
 o = user0
 p = user1
-while (0 <= o < 4) and (0 <= p < 4):
+while (0 <= q < len(board)) and (0 <= r < len(board)):
+    lis.add(board[q][r])
+    q -= 1
+while (0 <= s < len(board)) and (0 <= t < len(board)):
+    lis.add(board[s][t])
+    s += 1
+while (0 <= u < len(board)) and (0 <= v < len(board)):
+    lis.add(board[u][v])
+    v -= 1
+while (0 <= w < len(board)) and (0 <= x < len(board)):
+    lis.add(board[w][x])
+    x += 1
+while (0 <= o < len(board)) and (0 <= p < len(board)):
     lis.add(board[o][p])
     o += 1
     p += 1
-while (0 <= m < 4) and (0 <= n < 4):
+while (0 <= m < len(board)) and (0 <= n < len(board)):
     lis.add(board[m][n])
     m -= 1
     n -= 1
-while (0 <= k < 4) and (0 <= l < 4):
+while (0 <= k < len(board)) and (0 <= l < len(board)):
     lis.add(board[k][l])
     k -= 1
     l += 1
-while (0 <= i <4) and (0 <= j < 4):
+while (0 <= i <len(board)) and (0 <= j < len(board)):
     lis.add(board[i][j])
     i += 1
     j -= 1
 print(lis)
 stanmp2 = timeit.default_timer()
 print(stanmp2-stanmp1)
-'''
+
 #graph to compare various time complpexities of big o notation!
 
 '''
@@ -429,16 +455,3 @@ acer.ShowAcerDetails()'''
 # print(tomo)
 # print(dt.datetime.today() - tomo)
 
-NK = input().split()
-N = int(NK[0])
-K = int(NK[1])
-arr = list(map(int, input().split()))
-remainder = [0 for i in range(K)]
-for i in range(N):
-    remainder[arr[i]%K] += 1
-if K%2 == 0:
-    remainder[K//2] = min(remainder[K//2],1)
-result = min(remainder[0],1)
-for i in range(1,(K//2)+1):
-    result += max(remainder[i],remainder[K-i])
-print(result)

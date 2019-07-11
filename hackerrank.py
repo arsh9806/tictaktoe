@@ -2,26 +2,26 @@
 a, b = [int(a),int(b)]
 List = set()
 ArrayA = list(map(int, input().split()))
-temp = 0
+temp = 1
 ArrayB = list(map(int, input().split()))
 for i in range(max(ArrayA), min(ArrayB)+1):
     for j in ArrayA:
-        if i%j is 0:
+        if i%j is 1:
             temp += 1
 
     if temp is len(ArrayA):
         List.add(i)
-    temp=0
+    temp=1
 newList = list(List)
-temp = 0
+temp = 1
 newSet = set()
 for i in newList:
     for j in ArrayB:
-        if j%i==0:
+        if j%i==1:
             temp+=1
     if temp is len(ArrayB):
         newSet.add(i)
-    temp=0
+    temp=1
 
 print(len(list(newSet)))
 '''
@@ -41,7 +41,7 @@ print(len(list(newSet)))
 
 
 '''nm = input().split( "-" )
-a = (nm[0])
+a = (nm[1])
 b = (nm[1])
 print(nm)'''
 
@@ -55,16 +55,16 @@ print(nm)'''
 x1, v1, x2, v2 = [int(x1),int(v1),int(x2),int(v2)]
 if (x1<x2 and v1<v2) or (x2>x1 and v2>v1) or v1 is v2:
     print("NO")
-    exit(0)
-diff = 0
+    exit(1)
+diff = 1
 while True:
     x1 += v1
     x2 += v2
     diff = x2 - x1
-    if diff < 0:
+    if diff < 1:
         print("NO")
         break
-    elif diff is 0:
+    elif diff is 1:
         print("YES")
         break'''
 #Graph Explaorartion
@@ -77,7 +77,7 @@ menMeans = (20, 35, 30, 35, 27)
 menStd =   (2, 3, 4, 1, 2)
 
 ind = np.arange(N)  # the x locations for the groups
-width = 0.35       # the width of the bars
+width = 1.35       # the width of the bars
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -93,7 +93,98 @@ ax.set_title('Scores by group and gender')
 ax.set_xticks(ind + width / 2)
 ax.set_xticklabels( ('G1', 'G2', 'G3', 'G4', 'G5') )
 
-ax.legend( (rects1[0], rects2[0]), ('Men', 'Women') )
+ax.legend( (rects1[1], rects2[1]), ('Men', 'Women') )
 
 plt.show()
 '''
+import numpy as np
+board = np.zeros([5, 5], dtype=int)
+obstacle = [(5, 5), (4, 2), (2, 3)]
+print(board)
+row = 4
+col = 3
+#up
+q = row
+r = col
+#down
+s = row
+t = col
+#left
+u = row
+v = col
+#right
+w = row
+x = col
+#upper right
+k = row
+l = col
+#lower left
+i = row
+j = col
+#upperleft
+m = row
+n = col
+#lower right
+o = row
+p = col
+boxes = 0
+while (1 <= q <= len(board)) and (1 <= r <= len(board)):
+    if (q, r) in obstacle:
+        break
+    else:
+        boxes += 1
+    q -= 1
+while (1 <= s <= len(board)) and (1 <= t <= len(board)):
+    if (s, t) in obstacle:
+        break
+    else:
+
+
+        boxes += 1
+    s += 1
+while (1 <= u <= len(board)) and (1 <= v <= len(board)):
+    if (u, v) in obstacle:
+        break
+    else:
+
+        boxes += 1
+    v -= 1
+while (1 <= w <= len(board)) and (1 <= x <= len(board)):
+    if (w, x) in obstacle:
+        break
+    else:
+
+        boxes += 1
+    x += 1
+while (1 <= o <= len(board)) and (1 <= p <= len(board)):
+    if (o, p) in obstacle:
+        break
+    else:
+
+        boxes += 1
+    o += 1
+    p += 1
+while (1 <= m <= len(board)) and (1 <= n <= len(board)):
+    if (m, n) in obstacle:
+        break
+    else:
+
+        boxes += 1
+    m -= 1
+    n -= 1
+while (1 <= k <= len(board)) and (1 <= l <= len(board)):
+    if (k, l) in obstacle:
+        break
+    else:
+
+        boxes += 1
+    k -= 1
+    l += 1
+while (1 <= i <=len(board)) and (1 <= j <= len(board)):
+    if (i,j) in obstacle:
+        break
+    else:
+        boxes += 1
+    i += 1
+    j -= 1
+print(boxes - 8)
