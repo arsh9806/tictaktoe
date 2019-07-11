@@ -48,6 +48,7 @@ f1entryemail = Entry(frame1)
 
 f1but = Button(frame1,text="Add details", command=AddDetails, fg="red")
 f1lableTitle.grid(column=1, row=0)
+f1but.wait_visibility()
 #f1rb.grid(column=1, row=1)
 f1lblname.grid(column=1, row=3)
 f1entryname.grid(column=1, row=4)

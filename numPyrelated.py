@@ -5,6 +5,7 @@
 # print(arr1)
 # arr2 = np.genfromtxt("Data.csv",delimiter=",",dtype=int)
 # print(arr2[0:,:-1])
+import tkinter as tk
 '''import time
 stamp = time.time()
 import pandas as pd
@@ -89,5 +90,33 @@ kills = [19,15,16]
 plt.pie(kills,labels=player)
 plt.show()
 '''
+
+'''
 import math
 
+lst = [1 ,2 ,3 ,1 ,2 ,3 ,3 ,3]
+def most_common(lst):
+    return max(set(lst), key=lst.count)
+print(most_common(lst))'''
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+lis = np.arange(-2,5,0.01)
+linear = [i for i in lis]
+lam = lambda x : 1 if x>0 else 0
+bin = list(map(lam, lis))
+sigmoid = [(1/(1+math.exp(-i))) for i in lis]
+hyper = [math.tanh(i) for i in lis]
+lam1 = lambda x : x if x>=0 else 0
+rlu = list(map(lam1,lis))
+softmax = (np.exp(lis))/sum(np.exp(lis))
+plt.plot(lis,linear,label="linear")
+plt.plot(lis,bin,label="binary")
+plt.plot(lis,sigmoid,label="sigmoid")
+plt.plot(lis,rlu,label="recified linear")
+plt.plot(lis,hyper,label="hyper")
+plt.plot(lis,softmax,label="softmax")
+plt.legend()
+plt.grid()
+plt.show()

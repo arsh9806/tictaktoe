@@ -39,6 +39,7 @@ def Insert_value():
         messagebox.showerror("Feilds Empty", "Enter Some values")
     else:
         tree1.insert('', 'end', text=name_text.get(), values=(class_text.get(), roll_text.get(), sec_text.get()))
+        print(list(tree1.tk))
 def delete():
     selected_item = tree1.selection() ## get selected item
     if not selected_item:

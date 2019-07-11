@@ -300,15 +300,24 @@ print("R2 score is : ", r2_score(Y, Y1))
 plt.plot(X,Y1,label="Regression",color="r")
 plt.scatter(X,Y,label="Original")
 plt.show()'''
-import cv2 as cv
+'''import cv2 as cv
 img = cv.imread("quote1.jpg")
 (row, col) = img.shape[:2]
 print(row, col)
 center = (row/2,col/2)
-newimg = cv.getRotationMatrix2D(center,90,1.0)
+newimg = cv.getRotationMatrix2D(center,270,1.0)
 rotated = cv.warpAffine(img,newimg,(row,col))
 cv.imshow("title",rotated)
-cv.waitKey(0)
+cv.waitKey(0)'''
 
+from sklearn.naive_bayes import GaussianNB
+from sklearn.datasets import load_iris
+
+irisdata = load_iris()
+model = GaussianNB()
+model.fit(irisdata.data,irisdata.target)
+sampleinput = [2.0, 2.0, 3.0, 1.0]
+predicted = model.predict([sampleinput])
+print(predicted)
 
 

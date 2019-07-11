@@ -25,6 +25,7 @@ def AddDetails():
             data = user.__dict__
             db.collection("Users").document().set(data)
 
+
             messagebox.showinfo("DONE!", "Data Saved.")
 window = Tk()
 frame1 = Frame(window)
@@ -51,6 +52,7 @@ entryemail = Entry(frame1)
 entryemail.grid(column=1, row=8)
 but = Button(frame1,text="Add details", command=AddDetails, fg="red")
 but.grid(column=1, row=9)
+but.wait_visibility()
 frame1.grid(row=0,column=0)
 #Updating Exsiting Customer Details!
 
