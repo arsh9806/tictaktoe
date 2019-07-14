@@ -158,7 +158,7 @@ def hasprecedence(op1,	op2):
 print(hasprecedence("/","+"))'''
 
 #diagonal element check for a queen in chess
-import time
+'''import time
 import timeit
 
 
@@ -226,7 +226,7 @@ while (0 <= i <len(board)) and (0 <= j < len(board)):
 print(lis)
 stanmp2 = timeit.default_timer()
 print(stanmp2-stanmp1)
-
+'''
 #graph to compare various time complpexities of big o notation!
 
 '''

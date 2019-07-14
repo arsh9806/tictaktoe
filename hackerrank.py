@@ -98,11 +98,16 @@ ax.legend( (rects1[1], rects2[1]), ('Men', 'Women') )
 plt.show()
 '''
 import numpy as np
-board = np.zeros([5, 5], dtype=int)
-obstacle = [(5, 5), (4, 2), (2, 3)]
-print(board)
-row = 4
-col = 3
+nk = input().split()
+board = int(nk[0])
+numberOfObs = int(nk[1])
+roco = input().split()
+obstacle = []
+row = int(roco[0])
+col = int(roco[1])
+for _ in range(numberOfObs):
+    obs = input().split()
+    obstacle.append((int(obs[0]), int((obs[1]))))
 #up
 q = row
 r = col
@@ -128,13 +133,13 @@ n = col
 o = row
 p = col
 boxes = 0
-while (1 <= q <= len(board)) and (1 <= r <= len(board)):
+while (1 <= q <= board) and (1 <= r <= board):
     if (q, r) in obstacle:
         break
     else:
         boxes += 1
     q -= 1
-while (1 <= s <= len(board)) and (1 <= t <= len(board)):
+while (1 <= s <= board) and (1 <= t <= board):
     if (s, t) in obstacle:
         break
     else:
@@ -142,21 +147,21 @@ while (1 <= s <= len(board)) and (1 <= t <= len(board)):
 
         boxes += 1
     s += 1
-while (1 <= u <= len(board)) and (1 <= v <= len(board)):
+while (1 <= u <= board) and (1 <= v <= board):
     if (u, v) in obstacle:
         break
     else:
 
         boxes += 1
     v -= 1
-while (1 <= w <= len(board)) and (1 <= x <= len(board)):
+while (1 <= w <= board) and (1 <= x <= board):
     if (w, x) in obstacle:
         break
     else:
 
         boxes += 1
     x += 1
-while (1 <= o <= len(board)) and (1 <= p <= len(board)):
+while (1 <= o <= board) and (1 <= p <= board):
     if (o, p) in obstacle:
         break
     else:
@@ -164,7 +169,7 @@ while (1 <= o <= len(board)) and (1 <= p <= len(board)):
         boxes += 1
     o += 1
     p += 1
-while (1 <= m <= len(board)) and (1 <= n <= len(board)):
+while (1 <= m <= board) and (1 <= n <= board):
     if (m, n) in obstacle:
         break
     else:
@@ -172,7 +177,7 @@ while (1 <= m <= len(board)) and (1 <= n <= len(board)):
         boxes += 1
     m -= 1
     n -= 1
-while (1 <= k <= len(board)) and (1 <= l <= len(board)):
+while (1 <= k <= board) and (1 <= l <= board):
     if (k, l) in obstacle:
         break
     else:
@@ -180,7 +185,7 @@ while (1 <= k <= len(board)) and (1 <= l <= len(board)):
         boxes += 1
     k -= 1
     l += 1
-while (1 <= i <=len(board)) and (1 <= j <= len(board)):
+while (1 <= i <=board) and (1 <= j <= board):
     if (i,j) in obstacle:
         break
     else:
