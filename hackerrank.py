@@ -97,6 +97,12 @@ ax.legend( (rects1[1], rects2[1]), ('Men', 'Women') )
 
 plt.show()
 '''
+from math import gcd
+# from functools import reduce
+
+# for _ in range(int(input())):
+#     N = int(input())
+#     print(reduce(lambda x,y: x*y//gcd(x,y), range(1,N+1)))
 import numpy as np
 nk = input().split()
 board = int(nk[0])
@@ -193,3 +199,4 @@ while (1 <= i <=board) and (1 <= j <= board):
     i += 1
     j -= 1
 print(boxes - 8)
+

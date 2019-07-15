@@ -96,8 +96,41 @@ for _ in range(0,case):
             N -= 1
 for i in newlis:
     print(i)'''
-i = 1
-while i % 2 != 0 or i % 3 != 0 or i %  4 != 0 or i % 5 != 0 or i % 6 != 0 or i %  7 != 0 or i %  8 != 0 or i %  9 != 0 or i % 10 != 0:
-    i += 1
 
-print(i)
+#project euler problem 5
+'''case = int(input())
+lis = []
+for _ in range(case):
+    N = int(input())
+    a = 1
+    b = 2
+    while b<=N:
+        a = (a*b)//gcd(a,b)
+        b += 1
+    lis.append(a)
+for i in lis:
+    print(i)'''
+
+#project euler problem 6
+'''case = int(input())
+lis = []
+for _ in range(case):
+    n = int(input())
+    lis.append(((n*(n+1))//2)**2 - (n*(n+1)*(2*n + 1))//6)
+for i in lis:
+    print(i)'''
+case  = int(input())
+for _ in range(case):
+
+    lis = [2]
+    i = 3
+    while len(lis) != 5:
+        N = i
+        temp = 0
+        for j in range(2,N//2+1):
+            if N%j == 0:
+                temp = 1
+        if temp == 0:
+            lis.append(N)
+        i += 2
+print(lis)
