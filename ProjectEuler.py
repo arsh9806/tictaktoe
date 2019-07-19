@@ -119,18 +119,82 @@ for _ in range(case):
     lis.append(((n*(n+1))//2)**2 - (n*(n+1)*(2*n + 1))//6)
 for i in lis:
     print(i)'''
-case  = int(input())
-for _ in range(case):
+import math
+nk = input().split()
+BoardLength = int(nk[0])
+NumberOfObstacles = int(nk[1])
+rk = input().split()
+rQueen = int(rk[0])
+cQueen = int(rk[1])
+rRObstacle = -1
+cRObstacle = -1
+rBRObstacle = -1
+cBRObstacle = -1
+rBObstacle = -1
+cBObstacle = -1
+rBLObstacle = -1
+cBLObstacle = -1
+rLObstacle = -1
+cLObstacle = -1
+rTLObstacle = -1
+cTLObstacle = -1
+rTObstacle = -1
+cTObstacle = -1
+rTRObstacle = -1
+cTRObstacle = -1
+TotalSquares = 0
+for i in range(NumberOfObstacles):
+    rc = input().split()
+    rObstacle, cObstacle = int(rc[0]), int(rc[1])
+    #right
+    if ((cRObstacle > cObstacle) or rRObstacle == -1) and (cQueen < cObstacle) and (rRObstacle == rQueen):
+        rRObstacle = rObstacle
+        cRObstacle = cObstacle
 
-    lis = [2]
-    i = 3
-    while len(lis) != 5:
-        N = i
-        temp = 0
-        for j in range(2,N//2+1):
-            if N%j == 0:
-                temp = 1
-        if temp == 0:
-            lis.append(N)
-        i += 2
-print(lis)
+    #Bottom Right
+    if (rQueen - rObstacle == cObstacle - cQueen and cObstacle > cQueen and rObstacle < rQueen) and ((rObstacle > rBRObstacle and cObstacle < cBRObstacle) or rBRObstacle == -1):
+        rBRObstacle = rObstacle
+        cBRObstacle = rObstacle
+
+    #Bottom
+    if (rObstacle > rBObstacle or rBObstacle == -1) and rObstacle < rQueen and cObstacle == cQueen:
+        rObstacle = rBObstacle
+        cObstacle = cBObstacle
+
+    #BOttom Left
+    if (rQueen - rObstacle == cQueen - cObstacle and cObstacle < cQueen and rObstacle < rQueen) and ((rObstacle > rBLObstacle and cObstacle > cBLObstacle) or rBLObstacle == -1):
+        rBLObstacle = rObstacle
+        cBLObstacle = cObstacle
+
+    #Left
+    if (cObstacle > cLObstacle or rLObstacle == -1) and cObstacle<cQueen and rObstacle == rQueen:
+        rLObstacle = rObstacle
+        cLObstacle = cObstacle
+
+    #top Left
+    if (cQueen - cObstacle == rObstacle - rQueen and cObstacle<cQueen and rObstacle > rQueen) and ((rObstacle < rTLObstacle and cObstacle  > cTLObstacle ) or rTLObstacle == -1):
+        rTLObstacle = rObstacle
+        cTLObstacle = cObstacle
+
+    #Top
+    if (rObstacle < rTObstacle or rTObstacle == -1 ) and rObstacle > rQueen and cObstacle == cQueen:
+        cTObstacle = cObstacle
+        rTObstacle = rObstacle
+
+    #top Right
+    if rObstacle - rQueen and cObstacle - cQueen and cObstacle > cQueen and rObstacle > rQueen and ((rObstacle < rTRObstacle and cObstacle < cTRObstacle) or rTRObstacle == -1):
+        rTRObstacle = rObstacle
+        cTRObstacle = cObstacle
+
+#R B L T
+TotalSquares += cRObstacle-cQueen - 1 if cRObstacle != -1 else BoardLength - cQueen
+TotalSquares += rQueen - rBObstacle - 1 if rBObstacle != -1 else rQueen - 1
+TotalSquares += cQueen - cLObstacle -1 if cLObstacle != -1 else cQueen - 1
+TotalSquares += rTObstacle - rQueen - 1 if rTObstacle != -1 else BoardLength - rQueen
+
+#BR BL TL TR
+TotalSquares += cBRObstacle - cQueen - 1 if cBRObstacle != -1 else min(BoardLength-cQueen, rQueen - 1)
+TotalSquares += cQueen - cBLObstacle - 1 if cBLObstacle != -1 else min(cQueen - 1, rQueen - 1)
+TotalSquares += cQueen - cTLObstacle -1 if cTLObstacle != -1 else min(cQueen - 1, BoardLength - rQueen)
+TotalSquares += cTRObstacle - cQueen - 1 if cTRObstacle != -1 else min(BoardLength - cQueen, BoardLength - rQueen)
+print(TotalSquares)

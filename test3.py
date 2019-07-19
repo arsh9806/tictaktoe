@@ -310,7 +310,7 @@ rotated = cv.warpAffine(img,newimg,(row,col))
 cv.imshow("title",rotated)
 cv.waitKey(0)'''
 
-from sklearn.naive_bayes import GaussianNB
+'''from sklearn.naive_bayes import GaussianNB
 from sklearn.datasets import load_iris
 
 irisdata = load_iris()
@@ -318,6 +318,48 @@ model = GaussianNB()
 model.fit(irisdata.data,irisdata.target)
 sampleinput = [2.0, 2.0, 3.0, 1.0]
 predicted = model.predict([sampleinput])
-print(predicted)
+print(predicted)'''
+import tensorflow as tf
+from tensorflow import keras
+import cv2 as cv
+import matplotlib.pyplot as plt
+fashion_mnist = keras.datasets.fashion_mnist
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+train_images = train_images / 255.0
+
+test_images = test_images / 255.0
+
+
+plt.figure(figsize=(5,5))
+for i in range(25):
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(train_images[i])
+    plt.xlabel(class_names[train_labels[i]])
+plt.show()
+
+
+model = keras.Sequential([
+    keras.layers.Flatten(input_shape=(28, 28)),
+    keras.layers.Dense(128, activation=tf.nn.relu),
+    keras.layers.Dense(10, activation=tf.nn.softmax)
+])
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+
+model.fit(train_images, train_labels, epochs=5)
+test_loss, test_acc = model.evaluate(test_images, test_labels)
+
+print('Test accuracy:', test_acc)
+# plt.subplot(3,2,1)
+# plt.imshow(train_images[0])
+# plt.show()
+# cv.imshow("hi",train_images[0])
+# cv.waitKey(0)
 
