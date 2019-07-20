@@ -98,3 +98,4 @@ lst = [1 ,2 ,3 ,1 ,2 ,3 ,3 ,3]
 def most_common(lst):
     return max(set(lst), key=lst.count)
 print(most_common(lst))'''
+print(min(5, 6))
