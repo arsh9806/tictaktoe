@@ -193,11 +193,36 @@ for i in range(NumberOfSteps):
         SeaLevel += 1
 '''
 
-
-d = { 1 : "ABC",2 : "CDE"}
-print(d)
-
-
+'''case = int(input())
+newlis = []
+prime = 2
+for _ in range(case):
+    Len = int(input())
+    k = 1
+    i = 3
+    while k < Len:
+        N = i
+        temp = 0
+        for j in range(2,N//2+1):
+            if N%j == 0:
+                temp = 1
+        if temp == 0:
+            prime = N
+            k += 1
+        i += 2
+    newlis.append(prime)
+for i in newlis:
+    print(i)
+'''
+import sys
+from PySide2.QtGui import QGuiApplication
+from PySide2.QtCore import QUrl
+from PySide2.QtWebEngineWidgets import QWebEngineView
+app = QGuiApplication(sys.argv)
+b = QWebEngineView()
+b.load(QUrl('http://www.google.co.in'))
+b.show()
+app.exec_()
 
 
 

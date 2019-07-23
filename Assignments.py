@@ -454,4 +454,9 @@ acer.ShowAcerDetails()'''
 # tomo = dt.datetime(2019,6,17,2,56,45)
 # print(tomo)
 # print(dt.datetime.today() - tomo)
+import numpy as np
+a = np.array([1,2,3,4])
+b = [23,5]
+a = np.append(a,b)
+print(a)
 
