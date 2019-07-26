@@ -217,14 +217,14 @@ print(" ".join(lis))
 print(lis)
 '''
 
-import requests
+'''import requests
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from scipy import stats
 from sklearn.metrics import r2_score
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression'''
 '''
 
 url = "http://www.howstat.com/cricket/Statistics/Players/PlayerYears_ODI.asp?PlayerID=3243"
@@ -319,7 +319,8 @@ model.fit(irisdata.data,irisdata.target)
 sampleinput = [2.0, 2.0, 3.0, 1.0]
 predicted = model.predict([sampleinput])
 print(predicted)'''
-import tensorflow as tf
+
+'''import tensorflow as tf
 from tensorflow import keras
 import cv2 as cv
 import matplotlib.pyplot as plt
@@ -328,7 +329,7 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
-print(train_images[0])
+print(train_images[0])'''
 # train_images = train_images / 255.0
 #
 # test_images = test_images / 255.0
@@ -363,4 +364,120 @@ print(train_images[0])
 # plt.show()
 # cv.imshow("hi",train_images[0])
 # cv.waitKey(0)
+'''
+case = int(input())
+newlis = []
+prime = 2
+for _ in range(case):
+    Len = int(input())
+    k = 1
+    i = 3
+    while k < Len:
+        N = i
+        temp = 0
+        for j in range(2,int(N**0.5)+1):
+            if N%j == 0:
+                temp = 1
+        if temp == 0:
+            prime = N
+            k += 1
+        i += 2
+    newlis.append(prime)
+for i in newlis:
+    print(i)
+'''
+'''
+case = int(input())
+primes = [2]
+answers = []
+n = 1
+def isprime(num):
+    for i in primes:
+        if num % i == 0:
+            return False
+
+    return True
+for _ in range(case):
+    length = int(input())
+    number = 3
+    while True:
+        if isprime(number):
+            primes.append(number)
+            n += 1
+            if n == length:
+                break
+        number += 2
+    answers.append(primes[-1])
+print(answers)
+'''
+'''def isPrime(n):
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# returns the nth prime number
+def nthPrime(n):
+    numberOfPrimes = 2
+    prime = 3
+
+    while numberOfPrimes < n:
+        prime += 2
+        if isPrime(prime):
+            numberOfPrimes += 1
+    return prime
+case = int(input())
+answers = []
+for _ in range(case):
+    num = int(input())
+    if num == 1:
+        answers.append(2)
+        continue
+    if num == 2:
+        answers.append(3)
+        continue
+    print(nthPrime(num))
+'''
+'''import math
+
+
+def prime(n, l):
+    x = l[-1]
+    while len(l) < n:
+        x += 2
+        print("X is : ",x)
+        y = math.floor(x**0.5)
+        print("Y is : ",y)
+        count=0
+        print(l)
+        for i in l:
+            #print("-",i,"-",x)
+            if i > y:
+                count=0
+                break
+            if x % i == 0:
+                count = 1
+                break
+        if count == 0:
+            l.append(x)
+            print(l)
+    return l
+
+
+t = int(input())
+l = [2, 3]
+for i in range(t):
+    n = int(input())
+    if len(l) < n:
+        l = prime(n, l)
+    print(l[n-1])'''
+
+# def f():
+#     for i in range(3):
+#         yield i
+#         print(i+10)
+#
+# print(list(f()))
+
+
 

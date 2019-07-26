@@ -192,7 +192,8 @@ while choice == "yes":
     choice = input("Would you like to add another Address(yes/no): ")
 for i in adrsList:
     i.showAddressDetails()'''
-
+import cv2 as cv
+print(cv.__version__)
 lis = [2,3,1]
 temp = []
 for i in range(1,4):

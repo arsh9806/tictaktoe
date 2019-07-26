@@ -119,6 +119,54 @@ for _ in range(case):
     lis.append(((n*(n+1))//2)**2 - (n*(n+1)*(2*n + 1))//6)
 for i in lis:
     print(i)'''
+
+#projct euler problem 7 (using seive's method)
+'''from math import log, ceil
+
+def find_primes(limit):
+    nums = [True] * (limit + 1)
+    nums[0] = nums[1] = False
+
+    for (i, is_prime) in enumerate(nums):
+        if is_prime:
+
+            yield i
+            for n in range(i * i, limit + 1, i):
+                nums[n] = False
+
+def upper_bound_for_p_n(n):
+    if n < 6:
+        return 100
+    return ceil(n * (log(n) + log(log(n))))
+
+def find_n_prime(n):
+    primes = list(find_primes(upper_bound_for_p_n(n)))
+    return primes
+case = int(input())
+lis = find_n_prime(10001)
+for _ in range(case):
+    lenght = int(input())
+    print(lis[lenght-1])
+    '''
+#project euler problem 8
+'''from functools import reduce
+case = int(input())
+
+for _ in range(case):
+    max = 0
+    nk = input().split()
+    n = int(nk[0])
+    k = int(nk[1])
+    number = input()
+    for i in range(n-k+1):
+        if '0' in number[i:i+k]:
+            continue
+        else:
+            lis = [int(a) for a in number[i:i+k]]
+            mul = reduce(lambda a,b : a*b ,lis)
+            if mul > max:
+                max = mul
+    print(max)'''
 import math
 nk = input().split()
 BoardLength = int(nk[0])
