@@ -476,7 +476,17 @@ for i in range(t):
 #     for i in range(3):
 #         yield i
 #         print(i+10)
-#
-# print(list(f()))
+import math
+string = "feed the dog"
 
+string = "".join(string.split())
+row = math.floor(math.sqrt(len(string)))
+column = math.ceil(math.sqrt(len(string)))
+if row*column < math.sqrt(len(string)):
+    row += 1
 
+for i in range(column):
+    s = ""
+    for j in range(i,len(string),column):
+        s += string[j]
+    print(s, end=" ")
