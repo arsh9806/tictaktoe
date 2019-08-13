@@ -476,46 +476,26 @@ for i in range(t):
 #     for i in range(3):
 #         yield i
 #         print(i+10)
-nums_20_60 = ['Twenty','Thirty','Forty','Fifty','Sixty']
-nums_0_19 = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight',"Nine", 'Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen']
-Front = int(input())
-Back = int(input())
-if Back == 0:
-    print(nums_0_19[Front].lower() + " o'" + " clock")
-elif 1 <= Back <= 30:
-    if Back == 15:
-        print("quarter past "+nums_0_19[Front].lower())
-    elif Back == 30:
-        print("half past "+ nums_0_19[Front].lower())
-    elif Back < 20:
-        if Back == 1:
-            print(nums_0_19[Back].lower() + " minute past " + nums_0_19[Front].lower())
-        else:
-            print(nums_0_19[Back].lower() + " minutes past " + nums_0_19[Front].lower())
-    else:
-        print(nums_20_60[0].lower() + " " + nums_0_19[int(str(Back)[-1])].lower() + " minutes past " + nums_0_19[Front].lower())
-elif 31 <= Back < 60:
-    if Back == 45:
-        print("quarter to " + nums_0_19[Front+1].lower())
-    elif Back < 41:
-        minutes = 60 - Back
-        if Front == 12:
-            print(nums_20_60[0].lower() + " " + nums_0_19[int(str(minutes)[-1])].lower() + " minutes to " + nums_0_19[1].lower())
-        else:
-            print(nums_20_60[0].lower() + " " + nums_0_19[int(str(minutes)[-1])].lower() + " minutes to " + nums_0_19[Front + 1].lower())
+nt = input().split()
+n = int(nt[0])
+t = int(nt[1])
+array = list(map(int, input().split()))
+def Result(a, b):
+    return min(array[a:b+1])
+for _ in range(t):
+    ab = input().split()
+    a = int(ab[0])
+    b = int(ab[1])
+    print(Result(a, b))
 
-    else:
-        minutes = 60 - Back
-        if minutes == 1:
-            if Front == 12:
-                print(nums_0_19[minutes].lower() + " minutes to " + nums_0_19[1].lower())
-            else:
-                print(nums_0_19[minutes].lower() + " minutes to " + nums_0_19[Front + 1].lower())
-        else:
-            if Front == 12:
-                print(nums_0_19[minutes].lower() + " minutes to " + nums_0_19[1].lower())
-            else:
-                print(nums_0_19[minutes].lower() + " minutes to " + nums_0_19[Front + 1].lower())
+
+'''8 5
+2 3 1 2 3 2 3 3
+0 3
+4 6
+6 7
+3 5
+0 7'''
 
 
 

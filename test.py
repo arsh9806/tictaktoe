@@ -215,14 +215,26 @@ for i in newlis:
     print(i)
 '''
 import sys
-from PySide2.QtGui import QGuiApplication
-from PySide2.QtCore import QUrl
-from PySide2.QtWebEngineWidgets import QWebEngineView
-app = QGuiApplication(sys.argv)
-b = QWebEngineView()
-b.load(QUrl('http://www.google.co.in'))
-b.show()
-app.exec_()
+from PyQt5.QtWidgets import QMainWindow,QApplication
+from PyQt5 import QtGui
+class Window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.title = "Py Window"
+        self.left = 100
+        self.width = 300
+        self.height = 400
+        self.top = 100
+        self.InitWindow()
+
+    def InitWindow(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left , self.top,self.width,self.height)
+        self.setWindowIcon(QtGui.QIcon("quote1.jpg"))
+        self.show()
+App = QApplication(sys.argv)
+window = Window()
+sys.exit(App.exec_())
 
 
 
